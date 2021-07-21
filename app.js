@@ -41,6 +41,7 @@ let login = false
 
 app.get("/", function(req, res){
     res.render("login")
+    login=false
 });
 
 app.post("/", function(req, res){
@@ -48,22 +49,15 @@ app.post("/", function(req, res){
     const inputPW = req.body.userPW   //work
     
     Login.findOne({name: inputID}, function(err, foundUser){
-        if(err){
-            console.log(err)
-        } else{
-            if(foundUser){
+        if(foundUser){
                 if(foundUser.password === inputPW){
                     login= true
                     res.redirect("/main");
                 }
-            }
+            }else{res.redirect("/reject")}
         }
+    )
     })
-
-});
-
-
-
 
 //main
 
@@ -78,18 +72,24 @@ const Item = mongoose.model("Item", itemSchema);
 
 
 app.get("/main", function(req, res) {
-  
+    if(login){
+
     Item.find({}, function(err, foundItems){
       
       res.render("main", {listTitle: "Today", stockItems: foundItems});
 
-    })
+    })}
+    else{
+        res.redirect("/")
+    }
 })
 
 
 //create
 app.get("/create", function(req, res) {
-    res.render("create")   
+    if(login){
+    res.render("create")}
+    else{res.redirect("/")}   
 });
 
 app.post("/create", function(req, res) {
@@ -113,7 +113,9 @@ app.post("/create", function(req, res) {
 //update/
 
 app.get("/update", function(req, res){
-    res.render("update")
+    if(login){
+    res.render("update")}
+    else{res.redirect("/")}   
 })
 
 app.post("/update", function(req, res) {
@@ -129,7 +131,9 @@ app.post("/update", function(req, res) {
 
 //delete
 app.get("/delete", function(req, res){
+    if(login){
     res.render("delete")
+    }else{res.redirect("/")}   
 })
 
 app.post("/delete", function(req, res) {
@@ -143,7 +147,10 @@ app.post("/delete", function(req, res) {
     res.redirect("/main")
 });
 
-
+//reject
+app.get("/reject", function(req, res){
+    res.render("reject")
+})
 
 
 app.listen(3000, function(){
