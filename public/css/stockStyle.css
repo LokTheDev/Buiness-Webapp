@@ -1,0 +1,24 @@
+.container{
+    border: 1px solid black;
+    display: flex;
+    overflow: scroll;
+}
+
+img{
+    max-width: 150px;
+    max-width: 150px;
+
+}
+.box{
+    border: 1px solie black;
+    margin: auto;
+    min-width: 250px;
+    min-width: 250px;
+}
+
+
+.box > ul{
+
+    list-style-type: none;
+    border: 1px solid black;
+}

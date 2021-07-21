@@ -1,0 +1,15 @@
+body{
+    text-align: center;
+}
+div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: lavender;
+    min-height: 812px;
+}
+
+input{
+    display: block;
+    margin: 10px;
+}

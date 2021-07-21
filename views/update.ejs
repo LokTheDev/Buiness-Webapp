@@ -1,0 +1,21 @@
+<%- include("partials/header") %>
+<link rel="stylesheet" href="/css/createStyle.css">
+<body>
+    
+    <div class="box">
+        <h1>Stock Update</h1>
+    <form method="POST">        
+        <input type="text" name="itemName" placeholder="Serach With Item Name" required>             
+        <input type="number" name="itemStock" placeholder=" NEW stock number" required>
+        <input type="number" name="itemPrice" placeholder="NEW item price" required>
+        <input type="text" name="itemImg" placeholder=" NEW img url" required>
+        <button type="submit">Update</button>
+    </form>
+    </div>
+    
+</body>
+
+
+
+
+<%- include("partials/footer") %>

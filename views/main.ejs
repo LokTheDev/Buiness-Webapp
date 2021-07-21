@@ -1,0 +1,23 @@
+<%- include("partials/header") %>
+<link rel="stylesheet" href="/css/stockStyle.css">
+<body>
+    <div class="container">
+        <% stockItems.forEach(function(item){ %>
+           <div class="box">
+            <ul>
+                <li>Name: <%= item.name %></li> 
+                <li>Stock: <%= item.stock %></li>    
+                <li>Price: $ <%= item.price %></li>    
+                <li><img src=/pic/<%= item.img %> </li>   
+                
+            </ul>
+           </div>
+           
+        <% }) %>    
+    </div>
+</body>
+
+
+
+
+<%- include("partials/footer") %>

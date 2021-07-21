@@ -1,0 +1,31 @@
+body{
+    margin: 0;
+}
+a{
+    color: white;
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+nav{
+    background-color: dimgrey;
+    
+}
+
+nav > ul{
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+}
+
+nav> ul > li{
+    margin: 10px 50px;
+}
+
+footer{
+    background-color: teal;
+    display: flex;
+    justify-content: center;
+}
